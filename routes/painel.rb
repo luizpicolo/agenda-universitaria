@@ -1,9 +1,9 @@
 get '/' do
-    #@tarefas = Tarefa.all
+    @tarefas = Tarefa.all
     erb :painel
 end
 
 get '/painel' do
-    #@tarefas = Tarefa.all(:order => :prioridade.asc, :order => :data_inicio.asc)
+    @tarefas = Tarefa.all(:order => :prioridade.asc, :order => :data_inicio.asc)
     erb :painel
 end

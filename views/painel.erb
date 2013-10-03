@@ -1,4 +1,33 @@
 <div class="top-bar"> Seja bem vindo(a): Luiz Picolo.</div>
 <div id="main">
-    
+    <%@tarefas.each do |t|%>
+      <div class="coluna-3">
+        <a href="#">  
+            <section class="panel">
+                <div class="data"><%=t.data_inicio.strftime("%d/%m/%Y")%></div>
+                <div class="title"><%=t.titulo%></div>
+                <p><%=t.descricao%></p>
+                <%if t.visibilidade == 1%>
+                <p class="text-right">
+                    <i data-tooltip title="Público" class="icon-unlock has-tip" ></i>
+                    <i data-tooltip title="Compartilhar com Facebook"class="icon-facebook has-tip"></i>
+                    <i data-tooltip title="Compartilhar com Twitter"class="icon-twitter has-tip"></i>
+                </p>
+                <%elsif t.visibilidade == 2%>
+                <p class="text-right">
+                    <i data-tooltip title="Visivel para amigos" class="icon-unlock-alt has-tip"></i>
+                    <i data-tooltip title="Compartilhar com Facebook"class="icon-facebook has-tip"></i>
+                    <i data-tooltip title="Compartilhar com Twitter"class="icon-twitter has-tip"></i>
+                </p> 
+                <%else%>
+                <p class="text-right">
+                    <i data-tooltip title="Privado" class="icon-lock has-tip"></i>
+                    <i data-tooltip title="Compartilhar com Facebook"class="icon-facebook has-tip"></i>
+                    <i data-tooltip title="Compartilhar com Twitter"class="icon-twitter has-tip"></i>
+                </p>
+                <%end%>
+            </section> 
+        </a>
+      </div> 
+    <%end%>
 </div>

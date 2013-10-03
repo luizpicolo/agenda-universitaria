@@ -49,9 +49,11 @@ table, tr, td {
     border: none;
 }
 
-input {
+input[type="text"],
+input[type="password"],
+textarea {
     height: 40px;
-    font-size: 1em !important;
+    font-size: 0.9em !important;
     @include transition(all, 0.2s, linear, 0.1s);
     -moz-box-sizing: border-box; 
 }
@@ -65,6 +67,7 @@ textarea:focus {
         -webkit-box-shadow: 0.3em 0em 0em 0em rgba(0, 0, 0, 0.2) inset;
         -moz-box-shadow: 0.3em 0em 0em 0em rgba(0, 0, 0, 0.2) inset;
 }
+
 /* Estilos do Autor */
 #barra-lateral {
     
@@ -218,7 +221,7 @@ form {
     select {
         padding: 6px !important;
         width: 100%;
-        font-size: 1em !important; 
+        font-size: 0.9em !important;
         border: 1px solid rgba(0,0,0,0.2);
         background: linear-gradient(to bottom, white 0%, #f3f3f3 100%);
     }
@@ -233,6 +236,7 @@ input.button {
     height: 50px !important;
     @include border-radius(5px, 5px, 5px, 5px);
     width: 150px !important;
+    margin-bottom: 0;
 }
 
 /*
@@ -301,4 +305,34 @@ $coluna-padding: 10px;
         width: $coluna-unidade * $i;
         padding: $coluna-padding;
     }
+}
+
+/*
+    Panel
+=========================================*/
+.panel {
+    margin-bottom: 0 !important;
+    font-size: .8em;
+    
+    .title {
+        font-weight: bold;
+        font-size: 1.2em;
+    }
+    
+    i {
+        margin-right: 5px;
+        font-size: 1.3em;
+    }
+    
+    .data {
+        font-size: .9em;
+        text-align: right;
+    }
+}
+
+/*
+    ToolTip
+=========================================*/
+.has-tip {
+    cursor: default !important;
 }
