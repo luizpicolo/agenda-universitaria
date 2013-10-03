@@ -1,0 +1,304 @@
+/* Boilerplate */
+@import "foundation.css";
+@import "normalize.css";
+@import "fullcalendar.css";
+@import "//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css";
+
+$verde: #00b5ad;
+$branco: #FEFEFE;
+$laranja: #E3C6A3;
+
+*, *::before, *::after{
+  box-sizing: border-box; 
+  -webkit-box-sizing: border-box; 
+  -moz-box-sizing: border-box; 
+  -o-box-sizing: border-box;  
+}
+
+/* Border Radio */
+@mixin border-radius($a, $b, $c, $d){
+  border-radius: $a $b $c $d;
+  -o-border-radius: $a $b $c $d;
+  -ms-border-radius: $a $b $c $d;
+  -moz-border-radius: $a $b $c $d;
+  -webkit-border-radius: $a $b $c $d;
+}
+
+/* Transition */
+@mixin transition($propriedade, $duracao, $transicao, $delay){
+   -moz-transition: $propriedade $duracao $transicao $delay;
+   -webkit-transition: $propriedade $duracao $transicao $delay;
+   -o-transition: $propriedade $duracao $transicao $delay;
+   -ms-transition: $propriedade $duracao $transicao $delay;
+   transition: $propriedade $duracao $transicao $delay;
+}
+
+@mixin text-shadow($horizontal, $vertical, $blur, $cor){
+    text-shadow: $horizontal $vertical $blur $cor;
+    -webkit-text-shadow: $horizontal $vertical $blur $cor;
+    -o-text-shadow: $horizontal $vertical $blur $cor;
+    -ms-text-shadow: $horizontal $vertical $blur $cor;
+}
+
+body {
+    font-family: "Open Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+    background: $branco;
+}
+
+table, tr, td {
+    border: none;
+}
+
+input {
+    height: 40px;
+    font-size: 1em !important;
+    @include transition(all, 0.2s, linear, 0.1s);
+    -moz-box-sizing: border-box; 
+}
+
+input[type="text"]:focus, 
+input[type="password"]:focus, 
+textarea:focus {
+        color: rgba(0, 0, 0, 0.85);
+        border-color: rgba(0, 0, 0, 0.2);
+        -webkit-appearance: none;
+        -webkit-box-shadow: 0.3em 0em 0em 0em rgba(0, 0, 0, 0.2) inset;
+        -moz-box-shadow: 0.3em 0em 0em 0em rgba(0, 0, 0, 0.2) inset;
+}
+/* Estilos do Autor */
+#barra-lateral {
+    
+    background-color: $verde;
+    position: fixed;
+    width: 100px;
+    height: 100%;
+    z-index: 50;
+    
+    h1 {
+        text-align: center; 
+        color: $branco;
+        font-size: 1em !important;
+        margin-left: -10px;
+        
+        i {
+           font-size: 4em;  
+           margin: 10px 0 0 0;
+           opacity: 1;
+        }
+    }
+}
+
+#menu {
+    
+    margin-top: 30px;
+    
+    span {
+        display: none;
+        font-size: 2em;
+    }
+    
+    ul {
+        margin: 0;
+        padding: 0;
+    }
+    
+    li {
+        position: relative;
+        width: 100%;
+        overflow: hidden;
+        @include transition(all, 0.2s, linear, 0.1s);
+        z-index: 51;
+        
+        &:hover {
+            width: 260px;
+            background: $verde;
+            @include border-radius(0, 5px, 5px, 0);
+            
+            span {
+                position: absolute;
+                display: block;
+                top: 0;
+                left: 110px;
+                font-size: 1.3em;
+                line-height: 68px;
+            }
+        }
+    }
+        
+    i {
+        font-size: 2em;
+        opacity: 1; 
+    }
+    
+    a {
+        display: block;
+        color: $branco;
+        text-decoration: none;
+        
+        padding: 20px 0 20px 27px;
+        
+        @include transition(all, 0.1s, linear, 0.1s);
+        
+        &:hover {
+            color: #207565;
+            background: $laranja;
+        }
+    }
+}
+
+/*
+    Principal
+=========================================*/
+
+main {
+    margin-left: 100px;
+}
+
+.top-bar {
+    background: $laranja;
+    height: 60px;
+    text-align: right;
+    line-height: 3.5;
+    color: $branco;
+    font-size: 1em;    
+    font-weight: bold;
+    width: 100%;
+    left: 0;
+    padding-right: 15px;
+    position: fixed;
+    z-index: 49;
+}
+
+.wide-top-bar {
+    @extend .top-bar; 
+    text-align: left;
+    padding: 0 5px 0 109px;
+    
+    .button {
+        background: $branco !important;
+        color: #999999;
+        border: none;
+        font-weight: 700;
+        text-transform: uppercase !important;
+        @include border-radius(5px, 5px, 5px, 5px);
+        
+        i {
+            margin-right: 7px;
+        }
+        
+        &:hover {
+            background: #207565 !important;
+            color: $branco;
+        }
+    }
+}
+
+#main {
+    
+    padding-top: 60px;
+    
+    a {
+        text-decoration: none;
+    }
+}
+
+/*
+    Calendar
+=========================================*/
+#calendar {
+    padding-top: 70px;
+    margin: 0 auto 10px;
+    width: 98%;
+}
+
+/*
+    Forms
+=========================================*/
+form {
+    select {
+        padding: 6px !important;
+        width: 100%;
+        font-size: 1em !important; 
+        border: 1px solid rgba(0,0,0,0.2);
+        background: linear-gradient(to bottom, white 0%, #f3f3f3 100%);
+    }
+}
+
+#descricao {
+    resize: none !important;
+    height: 100px !important;
+}
+
+input.button {
+    height: 50px !important;
+    @include border-radius(5px, 5px, 5px, 5px);
+    width: 150px !important;
+}
+
+/*
+    Modal
+=========================================*/
+.actions_not_submit {
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    padding: 1rem 2rem;
+    text-align: right;
+}
+
+#myModal {
+    @include border-radius(10px, 10px, 10px, 10px);
+}
+
+/*
+    Text
+=========================================*/
+.text-right {
+    text-align: right !important;
+}
+
+/*
+    Grid
+=========================================*/
+
+.grade {
+  width: 960px;
+  margin: 0 auto;
+
+  *zoom: 1;
+
+    &:before,
+    &:after {
+      content: "";
+      display: table;
+    }
+
+    &:after {
+      clear: both;
+    }
+}
+
+.linha {
+    width: 100%;
+    *zoom: 1;
+
+    &:before,
+    &:after {
+      content: "";
+      display: table;
+    }
+
+    &:after {
+      clear: both;
+    }
+}
+
+$colunas: 12;
+$coluna-unidade: 100% / $colunas;
+$coluna-padding: 10px;
+
+@for $i from 1 through $colunas {
+  .coluna-#{$i} {
+        float: left;
+        width: $coluna-unidade * $i;
+        padding: $coluna-padding;
+    }
+}
