@@ -1,5 +1,5 @@
 <div class="wide-top-bar">
-    <a href="/tarefas/cadastro" class="button" data-reveal-id="myModal" data-reveal-ajax="false">
+    <a href="javascript:getModalEdit()" class="button">
       <i class="icon-plus"></i>
       Adicionar
     </a>
@@ -10,7 +10,7 @@
 <div class="reveal-modal-bg" style="display: none">
     <div id="myModal" class="reveal-modal medium">
     <h3>Cadastrar Tarefa</h3>
-    <form data-response="#message" id="form" method="post" action="/tarefas">
+    <form data-response="#message" id="form-cadastro" method="post" action="/tarefas">
         <div class="row">
             <div class="large-8 columns">
                 <label for="titulo">Título</label>
@@ -61,72 +61,6 @@
         </div>
         <br>
         <div class="coluna-12" id="message"></div>
-        <div class="row">
-            <div class="large-12 columns text-right">
-                <input type="submit" class="button" value="Gravar">
-            </div>
-        </div>
-    </form>
-    <a class="close-reveal-modal">&#215;</a>
-    </div>
-</div>
-
-<div class="reveal-modal-bg" style="display: none">
-    <div id="myModal2" class="reveal-modal medium">
-    <h3>Cadastrar Tarefa</h3>
-    <form data-response="#message2" id="form" method="post" action="/tarefas">
-        <div class="row">
-            <input type="hidden" name="_method" value="put">
-	        <input type="hidden" name="id" id="id">   
-            <div class="large-8 columns">
-                <label for="titulo">Título</label>
-                <input type="text" name="titulo" id="titulo" required>
-            </div>
-            <div class="large-2 columns">
-                <label for="data_inicio">Data Início</label>
-                <input type="text" name="data_inicio" id="data_inicio" required>
-            </div>
-            <div class="large-2 columns">
-                <label for="data_termino">Data Término</label>
-                <input type="text" name="data_termino" id="data_termino" required>
-            </div>
-        </div>
-        <div class="row">
-            <div class="large-4 columns">
-                <label for="categoria">Categoria</label>
-                <select name="categoria" id="categoria">
-                    <option></option>
-                    <option value="1">Desenvolvimento Web</option>
-                    <option value="2">Projeto de Banco</option>
-                    <option value="3">Linguagem de Programação</option>
-                </select>
-            </div>
-            <div class="large-4 columns">
-                <label for="prioridade">Prioridade</label>
-                <select name="prioridade" id="prioridade">
-                    <option value="1">Baixa</option>
-                    <option value="2">Média</option>
-                    <option value="3">Alta</option>
-                </select>
-            </div>
-            <div class="large-4 columns">
-                <label for="visibilidade">Visibilidade</label>
-                <select name="visibilidade" id="visibilidade">
-                    <option value="1">Público</option>
-                    <option value="2">Amigos</option>
-                    <option value="3">Somente eu</option>
-                </select>
-            </div>
-        </div>
-        <br>
-        <div class="row">
-            <div class="large-12 columns">
-                <label for="descricao">Descrição</label>
-                <textarea name="descricao" id="descricao"></textarea>
-            </div>
-        </div>
-        <br>
-        <div class="coluna-12" id="message2"></div>
         <div class="row">
             <div class="large-12 columns text-right">
                 <input type="submit" class="button" value="Gravar">

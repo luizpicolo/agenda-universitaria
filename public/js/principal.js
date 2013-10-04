@@ -10,31 +10,70 @@ jQuery(function($){
     Modal
 =========================================*/
 var getModalEdit = function(id){ 
-    $('#myModal2').foundation('reveal', 'open');
-    var jqxhr = $.getJSON( "/tarefas/get_tarefa/"+id, function() {
-        var obj = jqxhr.responseJSON
-        $("#myModal2 input#titulo").attr("value", obj.titulo);
-        $("#myModal2 input#data_inicio").attr("value", obj.data_inicio);   
-        $("#myModal2 input#data_termino").attr("value", obj.data_termino);
-        $( "select#categoria option" ).each(function() {
-            if ($(this).attr('value') == parseInt(obj.categoria)){
-                $(this).attr("selected", "selected");    
+    $('#myModal').foundation('reveal', 'open');
+    if (id){
+        var jqxhr = $.getJSON( "/tarefas/get_tarefa/"+id, function() {
+            var obj = jqxhr.responseJSON
+            
+            // Troca o titulo do form
+            $("#myModal h3").text("Atualizar Tarefa");
+            
+            // Acrescenta o input para o PUT
+            if (!$("#myModal input#method").length){
+                $('<input>').attr({'type': 'hidden', 'name': '_method', 'value': 'put', 'id': 'method'}).appendTo('#form-cadastro');
+                $('<input>').attr({'type': 'hidden', 'name': 'id', 'value': id, 'id': 'id'}).appendTo('#form-cadastro');
+            } else {
+                $("#myModal input#method").attr("value", id);
             }
-        });
-        $( "select#prioridade option" ).each(function() {
-            if ($(this).attr('value') == parseInt(obj.prioridade)){
-                $(this).attr("selected", "selected");    
-            }
-        });
-        $( "select#visibilidade option" ).each(function() {
-            if ($(this).attr('value') == parseInt(obj.visibilidade)){
-                $(this).attr("selected", "selected");    
-            }
-        });
-        $("#myModal2 textarea#descricao").text(obj.descricao);
-        $("#myModal2 input#id").attr("value", obj.id);
+                        
+            $("#myModal input#titulo").attr("value", obj.titulo);
+            $("#myModal input#data_inicio").attr("value", obj.data_inicio);   
+            $("#myModal input#data_termino").attr("value", obj.data_termino);
+            $( "select#categoria option" ).each(function() {
+                if ($(this).attr('value') == parseInt(obj.categoria)){
+                    $(this).attr("selected", "selected");    
+                }
+            });
+            $( "#myModal select#prioridade option" ).each(function() {
+                if ($(this).attr('value') == parseInt(obj.prioridade)){
+                    $(this).attr("selected", "selected");    
+                }
+            });
+            $( "#myModal select#visibilidade option" ).each(function() {
+                if ($(this).attr('value') == parseInt(obj.visibilidade)){
+                    $(this).attr("selected", "selected");    
+                }
+            });
+            $("#myModal textarea#descricao").text(obj.descricao);
+            $("#myModal input#id").attr("value", obj.id);
+        })
+    } else {
+        if ($("#myModal input#method").attr("value")){
+            $( "#method" ).remove();    
+            $( "#id" ).remove();  
+        }
         
-    })
+        $("#myModal input#titulo").attr("value", "");
+        $("#myModal input#data_inicio").attr("value", "");   
+        $("#myModal input#data_termino").attr("value", "");
+        $( "select#categoria option" ).each(function() {
+            if ($(this).attr('value') != parseInt(obj.categoria)){
+                $(this).attr("selected", "selected");    
+            }
+        });
+        $( "#myModal select#prioridade option" ).each(function() {
+            if ($(this).attr('value') != parseInt(obj.prioridade)){
+                $(this).attr("selected", "selected");    
+            }
+        });
+        $( "#myModal select#visibilidade option" ).each(function() {
+            if ($(this).attr('value') != parseInt(obj.visibilidade)){
+                $(this).attr("selected", "selected");    
+            }
+        });
+        $("#myModal textarea#descricao").text("");
+        $("#myModal input#id").attr("value", "");
+    }
 }
 
 /*
@@ -76,12 +115,13 @@ $("form").submit(function(e){
     });
     
     request.done(function(msg) {
-        $(focusResponse).html('<div data-alert class="alert-box success" id="msg-01">Cadastrado com Sucesso<a href="#" class="close">&times;</a></div>');
+        $(focusResponse).html('<div data-alert class="alert-box success" id="msg-01">Sucesso<a href="#" class="close">&times;</a></div>');
+        // Limpa o formulário
         $(':input').not(':button, :submit, :reset, :hidden').val('').removeAttr('checked').removeAttr('selected');
         setTimeout("removeTagPorID('msg-01')", 2000);
     });
     request.fail(function(jqXHR, textStatus) {
-        $(focusResponse).html('<div data-alert class="alert-box alert" id="msg-01">Erro ao tentar cadastrar dados<a href="#" class="close">&times;</a></div>');
+        $(focusResponse).html('<div data-alert class="alert-box alert" id="msg-01">Erro<a href="#" class="close">&times;</a></div>');
         setTimeout("removeTagPorID('msg-01')", 2000);
     });
 });
@@ -109,7 +149,7 @@ $(document).ready(function() {
                     right: 'month,agendaWeek,agendaDay'
                 },
                         
-                editable: true,
+                editable: false,
                 events: jqxhr.responseJSON
             });    
         })
