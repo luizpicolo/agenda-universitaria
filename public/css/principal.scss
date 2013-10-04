@@ -6,7 +6,7 @@
 
 $verde: #00b5ad;
 $branco: #FEFEFE;
-$laranja: #E3C6A3;
+$laranja: #E48E43;
 
 *, *::before, *::after{
   box-sizing: border-box; 
@@ -143,7 +143,7 @@ textarea:focus {
         @include transition(all, 0.1s, linear, 0.1s);
         
         &:hover {
-            color: #207565;
+            color: $branco;
             background: $laranja;
         }
     }
@@ -236,6 +236,7 @@ input.button {
     height: 50px !important;
     @include border-radius(5px, 5px, 5px, 5px);
     width: 150px !important;
+    background: #00B5AD !important;
     margin-bottom: 0;
 }
 
@@ -248,7 +249,7 @@ input.button {
     text-align: right;
 }
 
-#myModal {
+#myModal, #myModal2 {
     @include border-radius(10px, 10px, 10px, 10px);
 }
 
@@ -331,8 +332,15 @@ $coluna-padding: 10px;
 }
 
 /*
-    ToolTip
+    ToolTip 
 =========================================*/
 .has-tip {
     cursor: default !important;
+}
+
+/*
+    Messeger 
+=========================================*/
+.alert {
+    background: #D87575 !important;
 }

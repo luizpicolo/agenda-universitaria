@@ -14,7 +14,20 @@ post '/tarefas' do
                 :prioridade => params[:prioridade],
                 :visibilidade => params[:visibilidade]
             )
-  tarefa.save(:safe => true)
+  tarefa.save()
+end
+
+put '/tarefas' do
+    Tarefa.set(
+        {:_id => params[:id]},
+        :titulo => params[:titulo], 
+        :data_inicio => params[:data_inicio], 
+        :data_termino => params[:data_termino], 
+        :categoria => params[:categoria],
+        :descricao => params[:descricao], 
+        :prioridade => params[:prioridade],
+        :visibilidade => params[:visibilidade]
+    )
 end
 
 get '/tarefas/get_array_json' do
@@ -32,9 +45,18 @@ get '/tarefas/get_array_json' do
     json(array)
 end
 
-post '/tarefas/get_tarefas/:id' do
-    @tarefa = Tarefa.find(params[:id]) 
-    #erb :modalEditeTarefas, :layout => false
+get '/tarefas/get_tarefa/:id' do
+    tarefa = Tarefa.find(params[:id]) 
+    json({  
+            :id => tarefa._id, 
+            :data_inicio => tarefa.data_inicio.strftime("%d/%m/%Y"), 
+            :data_termino => tarefa.data_termino.strftime("%d/%m/%Y"), 
+            :titulo => tarefa.titulo,
+            :categoria => tarefa.categoria,
+            :prioridade => tarefa.prioridade,
+            :visibiliade => tarefa.visibilidade,
+            :descricao => tarefa.descricao
+        })
 end
 
 get '/tarefas/cadastro' do
