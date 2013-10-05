@@ -2,9 +2,10 @@ get '/tarefas' do
     erb :tarefas
 end
 
+# Metodo para cadastrar as tarefas
 post '/tarefas' do
-  time = Time.new
-  tarefa = Tarefa.create(
+    time = Time.new
+    tarefa = Tarefa.create(
                 :titulo => params[:titulo], 
                 :data_inicio => params[:data_inicio], 
                 :data_termino => params[:data_termino], 
@@ -14,9 +15,11 @@ post '/tarefas' do
                 :prioridade => params[:prioridade],
                 :visibilidade => params[:visibilidade]
             )
-  tarefa.save()
+    tarefa.save()
+    "Sucesso"
 end
 
+# Método para atualizar as tarefas
 put '/tarefas' do
     Tarefa.set(
         {:_id => params[:id]},
@@ -28,6 +31,13 @@ put '/tarefas' do
         :prioridade => params[:prioridade],
         :visibilidade => params[:visibilidade]
     )
+    "Sucesso"
+end
+
+# Método para deletar as tarefas
+get '/tarefas/delete/:id' do
+    Tarefa.destroy(params[:id])
+    "Sucesso"
 end
 
 get '/tarefas/get_array_json' do
@@ -54,11 +64,7 @@ get '/tarefas/get_tarefa/:id' do
             :titulo => tarefa.titulo,
             :categoria => tarefa.categoria,
             :prioridade => tarefa.prioridade,
-            :visibiliade => tarefa.visibilidade,
+            :visibilidade => tarefa.visibilidade,
             :descricao => tarefa.descricao
         })
-end
-
-get '/tarefas/cadastro' do
-    erb :cadastro_tarefas, :layout => false
 end
