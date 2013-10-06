@@ -1,4 +1,5 @@
 get '/tarefas' do
+    throw(redirect '/') unless session[:authenticated]
     erb :tarefas
 end
 

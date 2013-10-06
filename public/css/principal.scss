@@ -69,7 +69,111 @@ textarea:focus {
         -moz-box-shadow: 0.3em 0em 0em 0em rgba(0, 0, 0, 0.2) inset;
 }
 
-/* Estilos do Autor */
+/*
+    Login
+=========================================*/
+#login {
+    background: $branco;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin: -300px 0 0 -150px;
+    width: 300px;
+    height: 360px;
+    @include border-radius(5px, 5px, 5px, 5px);
+    
+    h2 {
+        text-align: center;
+        font-size: 1em;
+        color: #333333;
+    }
+    
+    label {
+        display: none;
+    }
+    
+    input {
+        text-align: center;
+    }
+    
+    p {
+        color: #333333;
+        text-align: center;
+        font-size:1.1em;
+        margin: -5px 0 10px 0;
+    }
+    
+    .button {
+        width: 100% !important;
+        padding: 0;
+    }
+    
+    .facebook, .twitter {
+        padding: 10px;
+        text-align: left;
+        font-size: 1em;
+        background: #456198 !important;
+        @include border-radius(5px, 5px, 5px, 5px);
+        
+        i {
+            margin: 0 10px 0 5px;
+            padding-right: 10px;
+            border-right: 1px solid #FFF;
+        }
+    }
+    
+    .twitter {
+        margin-top: -13px;
+        background: #2ba6cb !important;
+        
+        i {
+            margin: 0 10px 0 0;
+        }
+    }
+}
+
+#border-login {
+    border: 1px solid #CCC;
+    padding-top: 20px;
+    @include border-radius(5px, 5px, 5px, 5px);
+}
+
+#logo, #pagina-erro {
+    margin: 0 auto;
+    width: 300px;
+    font-size: 1.3em;
+    text-align: center;
+    h1 {
+        color: #333;
+    }
+    i {
+        display: block;
+        color: $verde;
+        font-size: 4.5em;
+    }
+}
+
+/*
+    Pagina de Erro
+=========================================*/
+#pagina-erro {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    margin: -200px 0 0 -150px;
+    i {
+        font-size: 10em;
+    } 
+    
+    h2 {
+        font-size: 1em;
+    }
+}
+
+/*
+    Estilos autor
+=========================================*/
 #barra-lateral {
     
     background-color: $verde;

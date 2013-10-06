@@ -56,11 +56,11 @@ var getModalEdit = function(id){
                 var id = $(this).attr('data-id');
                 
                 $('#message').load('/tarefas/delete/'+id, function(response, status, xhr){
-//                    if (status == "success" ) {
-//                        setTimeout(function(){
-//                            location.href = '/tarefas';
-//                        }, 2000);
-//                    }
+                    if (status == "success" ) {
+                        setTimeout(function(){
+                            location.href = '/tarefas';
+                        }, 2000);
+                    }
                 });
                 
             })
