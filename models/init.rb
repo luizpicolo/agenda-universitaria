@@ -7,3 +7,4 @@ configure do
 end
 
 require_relative 'tarefa.rb'
+require_relative 'usuario.rb'

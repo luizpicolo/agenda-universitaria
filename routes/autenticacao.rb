@@ -13,18 +13,58 @@ get '/' do
 end
 
 get '/auth/:provider/callback' do
-    erb "<h1>#{params[:provider]}</h1>
-         <pre>#{request.env['omniauth.auth'].to_json}</pre>"
-    session[:authenticated] = true;
-    redirect '/painel'
+    obj = JSON.parse(request.env['omniauth.auth'].to_json)
+    
+    # Salva o usuario caso não exista
+    time = Time.new
+    if params[:provider] == 'facebook'
+        Usuario.create(
+            :nome => obj['info']['name'],
+            :email => obj['info']['email'],
+            :avatar => obj['info']['image'],
+            :descricao => obj['info']['description'],
+            :data_cadastro => time.getlocal,
+            :usuario => obj['info']['nickname'],
+            :senha => SecureRandom.hex,
+            :facebook => obj['info']['urls']['facebook'],
+            :localizada => obj['info']['location'] 
+        ).save()
+    elsif params[:provider] == 'twitter'        
+        Usuario.create(
+            :nome => obj['info']['name'],
+            :email => obj['info']['email'] || 'mail@provedor.com',
+            :avatar => obj['info']['image'],
+            :descricao => obj['info']['description'],
+            :data_cadastro => time.getlocal,
+            :usuario => obj['info']['nickname'],
+            :senha => SecureRandom.hex,
+            :localizada => obj['info']['location']  
+        ).save()  
+    else
+        "teste"
+    end
+    
+    # Seleciona o usuário corrente
+    usuario = Usuario.where(:usuario => obj['info']['nickname']).first
+    
+    # cria a sessão para o usuário logado
+    session[:authenticated] = true
+    session[:nome] = usuario.nome
+    session[:id] = usuario._id
+    session[:usuario] = usuario.usuario
+    session[:avatar] = usuario.avatar
+    
+    puts usuario.avatar
+    
+    redirect "/painel"
 end
 
 get '/auth/failure' do
-    erb "<h1>Authentication Failed:</h1><h3>message:<h3> <pre>#{params}</pre>"
+    erb "<h1>Erro ao autenticar:</h1><h3>Mensagem:<h3> <pre>#{params}</pre>"
 end
   
 get '/auth/:provider/deauthorized' do
-    erb "#{params[:provider]} has deauthorized this app."
+    erb "#{params[:provider]} desautorizou seu app."
 end
     
 get '/logout' do

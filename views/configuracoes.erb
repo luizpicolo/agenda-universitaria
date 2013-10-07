@@ -1,0 +1,69 @@
+<div class="wide-top-bar">
+    <div class="large-7 columns">
+    </div>
+    <div class="large-5 columns text-right">
+        Seja bem vindo(a): <%=session[:nome]%>. 
+        <% if session[:avatar] != '' %>
+        <a href="#"><img src="<%=session[:avatar]%>"></a>
+        <% else %>
+        <i class="icon-user icon-3"></i>
+        <% end %>
+    </div>
+</div>
+<div id="main">
+    <form data-response="#message" id="form-cadastro" method="post" action="/configuracoes">
+        <div class="row">
+          <div class="large-12 columns">
+            <h1>Configurações da conta</h1>
+          </div>
+        </div>
+        <div class="row">
+          <div class="large-12 columns">
+            <h2>Geral</h2>
+          </div>
+        </div>
+        <div class="row">
+              <div class="large-4 columns">
+                <label for="nome">Nome</label>
+                <input type="text" name="nome" id="nome" value="<%=@geral.nome%>" required>
+              </div>
+              <div class="large-4 columns">
+                <label for="usuario">Nome de Usuário</label>
+                <input type="text" name="usuario" id="usuario" value="<%=@geral.usuario%>" disabled>
+              </div>
+              <div class="large-4 columns">
+                <label for="email">E-Mail</label>
+                <input type="email" name="email" id="email" value="<%=@geral.email%>" required>
+              </div> 
+        </div>
+        <div class="row">
+            <div class="large-4 columns">
+                <label for="senha-atual">Senha Atual</label>
+                <input type="text" name="senha-atual" id="senha-atual">
+            </div>
+            <div class="large-4 columns">
+                <label for="nova-senha">Nova Senha</label>
+                <input type="text" name="nova-senha" id="nova-senha">
+            </div>
+            <div class="large-4 columns">
+                <label for="digite-novamente">Digite Novamente</label>
+                <input type="text" name="digite-novamente" id="digite-novamente">
+            </div>
+        </div>
+        <div class="row">
+            <div class="large-12 columns">
+                <label for="descricao">Descrição</label>
+                <textarea name="descricao" id="descricao"><%=@geral.descricao%></textarea>
+            </div>
+        </div>
+        <div class="row">
+            <div class="coluna-12" id="message"></div>
+        </div>
+        <div class="row">
+            <div class="large-12 columns text-right" id="actions">
+                <input type="hidden" name="_method" value="put" id="method">
+                <input type="submit" class="button normal" value="Atualizar">
+            </div>
+        </div>
+    </form>
+</div>

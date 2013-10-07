@@ -6,17 +6,17 @@ end
 # Metodo para cadastrar as tarefas
 post '/tarefas' do
     time = Time.new
-    tarefa = Tarefa.create(
-                :titulo => params[:titulo], 
-                :data_inicio => params[:data_inicio], 
-                :data_termino => params[:data_termino], 
-                :data_cadastro => time.getlocal,
-                :categoria => params[:categoria],
-                :descricao => params[:descricao], 
-                :prioridade => params[:prioridade],
-                :visibilidade => params[:visibilidade]
-            )
-    tarefa.save()
+    Tarefa.create(
+        :id_usuario => session[:id],
+        :titulo => params[:titulo], 
+        :data_inicio => params[:data_inicio], 
+        :data_termino => params[:data_termino], 
+        :data_cadastro => time.getlocal,
+        :categoria => params[:catTegoria],
+        :descricao => params[:descricao], 
+        :prioridade => params[:prioridade],
+        :visibilidade => params[:visibilidade]
+    ).save()
     "Sucesso"
 end
 
@@ -43,7 +43,7 @@ end
 
 get '/tarefas/get_array_json' do
     array = []
-    tarefas = Tarefa.all
+    tarefas = Tarefa.all(:id_usuario => session[:id].to_s)
     tarefas.each do |tarefa|
     array << {  
             :_id => tarefa._id, 
@@ -59,13 +59,13 @@ end
 get '/tarefas/get_tarefa/:id' do
     tarefa = Tarefa.find(params[:id]) 
     json({  
-            :id => tarefa._id, 
-            :data_inicio => tarefa.data_inicio.strftime("%d/%m/%Y"), 
-            :data_termino => tarefa.data_termino.strftime("%d/%m/%Y"), 
-            :titulo => tarefa.titulo,
-            :categoria => tarefa.categoria,
-            :prioridade => tarefa.prioridade,
-            :visibilidade => tarefa.visibilidade,
-            :descricao => tarefa.descricao
-        })
+        :id => tarefa._id, 
+        :data_inicio => tarefa.data_inicio.strftime("%d/%m/%Y"), 
+        :data_termino => tarefa.data_termino.strftime("%d/%m/%Y"), 
+        :titulo => tarefa.titulo,
+        :categoria => tarefa.categoria,
+        :prioridade => tarefa.prioridade,
+        :visibilidade => tarefa.visibilidade,
+        :descricao => tarefa.descricao
+    })
 end

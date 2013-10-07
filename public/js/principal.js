@@ -25,7 +25,7 @@ var getModalEdit = function(id){
             if (!$("#myModal input#method").length){
                 $('<input>').attr({'type': 'hidden', 'name': '_method', 'value': 'put', 'id': 'method'}).appendTo('#form-cadastro');
                 $('<input>').attr({'type': 'hidden', 'name': 'id', 'value': id, 'id': 'id'}).appendTo('#form-cadastro');
-                $('<input>').attr({'type': 'button', 'name': 'delete', 'value': 'Deletar', 'id': 'delete', 'data-id': id, 'class': 'button'}).appendTo('#actions');
+                $('<input>').attr({'type': 'button', 'name': 'delete', 'value': 'Deletar', 'id': 'delete', 'data-id': id, 'class': 'button alert'}).appendTo('#actions');
             } else {
                 $("#myModal input#id").attr("value", id);
             }
@@ -143,16 +143,18 @@ $("form").submit(function(e){
         request.done(function(msg) {
             $(focusResponse).html('<div data-alert class="alert-box success" id="msg-01">Sucesso</div>');
             // Limpa o formulário
-            $(':input').not(':button, :submit, :reset, :hidden').val('').removeAttr('checked').removeAttr('selected');
+            //$(':input').not(':button, :submit, :reset, :hidden').val('').removeAttr('checked').removeAttr('selected');
             setTimeout(function(){
-                location.href = '/tarefas';
+                location.href = action;
             }, 2000);
         });
     } else {
         request.done(function(msg) {
-           $(focusResponse).html('<div data-alert class="alert-box success" id="msg-01">Sucesso</div>');
+            $(focusResponse).html('<div data-alert class="alert-box success" id="msg-01">Sucesso</div>');
             // Limpa o formulário 
-            setTimeout("removeTagPorID('msg-01')", 2000);
+            setTimeout(function(){
+                location.href = action;
+            }, 2000);
         })    
     }
     request.fail(function(jqXHR, textStatus) {

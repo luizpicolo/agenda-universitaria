@@ -1,8 +1,20 @@
 <div class="wide-top-bar">
-    <a href="javascript:getModalEdit()" class="button">
-      <i class="icon-plus"></i>
-      Adicionar
-    </a>
+    <div class="large-7 columns">
+        <a href="javascript:getModalEdit()" class="button">
+          Cadastrar Tarefa
+        </a>
+        <a href="#" class="button">
+          Categorias
+        </a>
+    </div>
+    <div class="large-5 columns text-right">
+        Seja bem vindo(a): <%=session[:nome]%>. 
+        <% if session[:avatar] != '' %>
+        <a href="#"><img src="<%=session[:avatar]%>"></a>
+        <% else %>
+        <i class="icon-user icon-3"></i>
+        <% end %>
+    </div>
 </div>
 
 <div id='calendar'></div>
@@ -63,7 +75,7 @@
         <div class="coluna-12" id="message"></div>
         <div class="row">
             <div class="large-12 columns text-right" id="actions">
-                <input type="submit" class="button" value="Gravar">
+                <input type="submit" class="button normal" value="Gravar">
             </div>
         </div>
     </form>

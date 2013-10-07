@@ -266,7 +266,7 @@ main {
     background: $laranja;
     height: 60px;
     text-align: right;
-    line-height: 3.5;
+    line-height: 3.8;
     color: $branco;
     font-size: 1em;    
     font-weight: bold;
@@ -275,6 +275,17 @@ main {
     padding-right: 15px;
     position: fixed;
     z-index: 49;
+    
+    i {
+        font-size: 3em;
+        margin: 5px 0 0 10px !important;
+        float: right
+    }
+    
+    img {
+        border: 1px solid $branco;
+        @include border-radius(5px, 5px, 5px, 5px);
+    }
 }
 
 .wide-top-bar {
@@ -307,6 +318,14 @@ main {
     
     a {
         text-decoration: none;
+    }
+    
+    h1 {
+        margin: 10px 0;
+    }
+    
+    h2 {
+        font-size: 1em;
     }
 }
 
@@ -341,9 +360,17 @@ input.button {
     height: 50px !important;
     @include border-radius(5px, 5px, 5px, 5px);
     width: 150px !important;
-    background: #00B5AD !important;
     margin-bottom: 0;
 }
+
+.normal {
+    background: #00B5AD !important;
+}
+
+.alert {
+    background: #b94a48 !important;
+    color: $branco !important;
+} 
 
 /*
     Modal

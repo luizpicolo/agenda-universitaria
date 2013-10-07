@@ -4,6 +4,7 @@ require 'rubygems'
 require 'omniauth'
 require 'omniauth-facebook'
 require 'omniauth-twitter'
+require 'securerandom'
 
 require_relative 'models/init'
 require_relative 'routes/init'
