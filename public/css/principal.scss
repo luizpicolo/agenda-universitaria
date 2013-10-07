@@ -4,6 +4,7 @@
 @import "fullcalendar.css";
 @import "foundation-datepicker.css";
 @import "//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css";
+@import "http://fonts.googleapis.com/css?family=Open+Sans";
 
 $verde: #00b5ad;
 $branco: #FEFEFE;
@@ -48,6 +49,18 @@ body {
 
 table, tr, td {
     border: none;
+}
+
+.block {
+    display: block;
+}
+
+.inline-block {
+    display: inline-block;
+}
+
+hr {
+   
 }
 
 input[type="text"],
@@ -226,8 +239,8 @@ textarea:focus {
                 position: absolute;
                 display: block;
                 top: 0;
-                left: 110px;
-                font-size: 1.3em;
+                left: 115px;
+                font-size: 1em;
                 line-height: 68px;
             }
         }
@@ -264,7 +277,7 @@ main {
 
 .top-bar {
     background: $laranja;
-    height: 60px;
+    height: 68px;
     text-align: right;
     line-height: 3.8;
     color: $branco;
@@ -285,13 +298,21 @@ main {
     img {
         border: 1px solid $branco;
         @include border-radius(5px, 5px, 5px, 5px);
+        margin: -6px -12px 0 10px;
     }
 }
 
 .wide-top-bar {
     @extend .top-bar; 
     text-align: left;
-    padding: 0 5px 0 109px;
+    padding: 3px 5px 0 92px;
+    
+    h1 {
+        color: #FAFAFA;
+        line-height: 2;
+        margin: 0 0 0 20px;
+        padding: 0;
+    }
     
     .button {
         background: $branco !important;
@@ -306,7 +327,8 @@ main {
         }
         
         &:hover {
-            background: #207565 !important;
+            background: $verde !important;
+            border: none;
             color: $branco;
         }
     }
@@ -314,14 +336,14 @@ main {
 
 #main {
     
-    padding-top: 60px;
+    padding: 69px 10px 0;
     
     a {
         text-decoration: none;
     }
     
     h1 {
-        margin: 10px 0;
+        text-align: left;
     }
     
     h2 {
@@ -333,7 +355,7 @@ main {
     Calendar
 =========================================*/
 #calendar {
-    padding-top: 70px;
+    padding-top: 80px;
     margin: 0 auto 10px;
     width: 98%;
 }
@@ -365,6 +387,7 @@ input.button {
 
 .normal {
     background: #00B5AD !important;
+    @include border-radius(5px, 5px, 5px, 5px);
 }
 
 .alert {
@@ -437,29 +460,6 @@ $coluna-padding: 10px;
         float: left;
         width: $coluna-unidade * $i;
         padding: $coluna-padding;
-    }
-}
-
-/*
-    Panel
-=========================================*/
-.panel {
-    margin-bottom: 0 !important;
-    font-size: .8em;
-    
-    .title {
-        font-weight: bold;
-        font-size: 1.2em;
-    }
-    
-    i {
-        margin-right: 5px;
-        font-size: 1.6em;
-    }
-    
-    .data {
-        font-size: .9em;
-        text-align: right;
     }
 }
 

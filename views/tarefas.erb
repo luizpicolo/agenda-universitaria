@@ -1,20 +1,5 @@
 <div class="wide-top-bar">
-    <div class="large-7 columns">
-        <a href="javascript:getModalEdit()" class="button">
-          Cadastrar Tarefa
-        </a>
-        <a href="#" class="button">
-          Categorias
-        </a>
-    </div>
-    <div class="large-5 columns text-right">
-        Seja bem vindo(a): <%=session[:nome]%>. 
-        <% if session[:avatar] != '' %>
-        <a href="#"><img src="<%=session[:avatar]%>"></a>
-        <% else %>
-        <i class="icon-user icon-3"></i>
-        <% end %>
-    </div>
+    <h1>Tarefas</h1>
 </div>
 
 <div id='calendar'></div>

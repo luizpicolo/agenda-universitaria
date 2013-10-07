@@ -10,7 +10,7 @@ $(document).ready(function(){
 /*
     Modal
 =========================================*/
-var getModalEdit = function(id){ 
+var getModalEdit = function(id, date){ 
     $('#myModal').foundation('reveal', 'open');
     if (id){
         // Retorna o objeto JSON
@@ -79,8 +79,8 @@ var getModalEdit = function(id){
         // Remove o conteudo dos inputs e afins
         // ISSO SERÁ MUDADO
         $("#myModal input#titulo").attr("value", "");
-        $("#myModal input#data_inicio").attr("value", "");   
-        $("#myModal input#data_termino").attr("value", "");
+        $("#myModal input#data_inicio").attr("value", date);   
+        $("#myModal input#data_termino").attr("value", date)
         $( "select#categoria option" ).each(function() {
             if ($(this).attr('value') != parseInt(obj.categoria)){
                 $(this).attr("selected", "selected");    
@@ -185,6 +185,11 @@ $(document).ready(function() {
                     center: 'title',
                     right: 'month,agendaWeek,agendaDay'
                 },
+                
+                dayClick: function(date, allDay, jsEvent, view){
+                    var id = '';
+                    getModalEdit(id, date);    
+                }, 
                         
                 editable: false,
                 events: jqxhr.responseJSON

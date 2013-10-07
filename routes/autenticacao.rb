@@ -9,7 +9,11 @@ use OmniAuth::Builder do
 end
 
 get '/' do
-    erb :autenticacao, :layout => false
+    if !session[:authenticated]
+        erb :autenticacao, :layout => false
+    else
+        redirect "/painel"  
+    end
 end
 
 get '/auth/:provider/callback' do
@@ -53,8 +57,6 @@ get '/auth/:provider/callback' do
     session[:id] = usuario._id
     session[:usuario] = usuario.usuario
     session[:avatar] = usuario.avatar
-    
-    puts usuario.avatar
     
     redirect "/painel"
 end
