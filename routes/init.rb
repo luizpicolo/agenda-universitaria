@@ -5,6 +5,6 @@ require_relative 'configuracoes'
 require_relative 'amigos'
 require_relative 'erro'
 
-not_found do
-  redirect '/erro'
-end
+#not_found do
+#  redirect '/erro'
+#end

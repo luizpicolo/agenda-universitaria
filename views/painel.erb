@@ -5,9 +5,33 @@
     <div class="row">
         <div class="large-12 columns">
             <header id="perfil-usuario">
-                <h1><img src="https://graph.facebook.com/shaverm/picture?width=200&height=200 "></h1>
-                <h2>Gabriel Medica</h2>
+                <hgroup>
+                    <h1><img src="https://graph.facebook.com/<%=@usuario.usuario%>/picture?width=200&height=200" title="Gabriel Medina"></h1>
+                    <h2><%=@usuario.nome%></h2>
+                </hgroup>
+                <div class="perfil-statistica">
+                    <div>Amigos</div>
+                    <div><%=@usuario.amigos.count%></div>
+                </div>
+                <% if @usuario._id != session[:id]%>
+                <% if session[:usuario].amigos.index(@usuario._id)%>
+                <div class="botao-seguir">
+                    <a href="/amigos/adicionar/<%=@usuario._id%>" class="button">Adicionar aos Amigos</a>
+                </div>
+                <% else %>
+                <div class="botao-seguir">
+                    <a href="/amigos/remover/<%=@usuario._id%>" class="button">Remover Amigo</a>
+                </div>
+                <% end %>
+                <% end %>
             </header>
+            <%@tarefas.each do |t|%>
+            <section class="perfil-tarefas">
+                <p><%=t.data_inicio.strftime("%d/%m/%Y")%></p>
+                <h1><%=t.titulo%></h1>
+                <p><%=t.descricao%></p>
+            </section>
+            <%end%>
         </div>
     </div>
 </div>

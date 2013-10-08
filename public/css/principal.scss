@@ -6,7 +6,7 @@
 @import "//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css";
 @import "http://fonts.googleapis.com/css?family=Open+Sans";
 
-$verde: #00b5ad;
+$color-1: #00b5ad;
 $branco: #FEFEFE;
 $laranja: #E48E43;
 
@@ -161,7 +161,7 @@ textarea:focus {
     }
     i {
         display: block;
-        color: $verde;
+        color: $color-1;
         font-size: 4.5em;
     }
 }
@@ -189,7 +189,7 @@ textarea:focus {
 =========================================*/
 #barra-lateral {
     
-    background-color: $verde;
+    background-color: $color-1;
     position: fixed;
     width: 100px;
     height: 100%;
@@ -232,7 +232,7 @@ textarea:focus {
         
         &:hover {
             width: 260px;
-            background: $verde;
+            background: $color-1;
             @include border-radius(0, 5px, 5px, 0);
             
             span {
@@ -327,7 +327,7 @@ main {
         }
         
         &:hover {
-            background: $verde !important;
+            background: $color-1 !important;
             border: none;
             color: $branco;
         }
@@ -493,26 +493,91 @@ $coluna-padding: 10px;
     Perfil do Usuário 
 =========================================*/
 #perfil-usuario {
-    background: $verde;
+    background: $color-1;
     margin: 70px 0 0;
     width: 100%;
-    height: 150px;
+    height: 110px;
     @include border-radius(100px, 10px, 10px, 100px);
+    position: relative;
+    margin-bottom: 70px;
     
     h1 {
         @include border-radius(50%, 50%, 50%, 50%);
-        width: 235px;
+        width: 200px;
         border: 1px solid #333;
         overflow: hidden;
         position: absolute;
-        top: 0;
+        top: -70px;
+        left: -20px;
+        
+        img {
+            width: 200px;
+        }
     }
     
     h2 {
         color: $branco;
-        padding-left: 250px;
-        padding-top: 20px;
+        padding-left: 200px;
+        padding-top: 10px;
         font-size: 2em;
+    }
+    
+    .perfil-statistica {
+        color: #FFF;
+        width: 200px;
+        font-size: .8em;
+        text-align: center;
+        position: absolute;
+        left: 130px;
+        top: 60px;
+    }
+    
+    .botao-seguir {
+        position: absolute;
+        right: 10px;
+        bottom: -5px; 
+        font-size: .8em;
+        
+        .button {
+            background: $laranja;
+            @include border-radius(5px, 5px, 5px, 5px);
+        }
+    }
+}
+
+.perfil-tarefas {
+        
+    border: 1px solid #ccc;
+    float: left;
+    padding: 6px;
+    width: 228px;
+    margin: 0 0 10px 10px;
+    @include border-radius(5px, 5px, 5px, 5px);
+    background: $laranja;
+        
+    h1 {
+        font-size: .8em;
+        padding: 0;
+        margin: 0 0 5px;
+        color: $branco;
+        line-height: 1.4; 
+    }
+    
+    p:first-child {
+        font-size: .7em;
+        padding: 0;
+        margin: 0;
+        text-align: right;
+        color: $branco;
+        font-weight: bold;
+        color: #252627;
+    }
+    
+    p:last-child {
+        font-size: .8em;
+        height: 57px;
+        overflow: hidden;
+        color: #252627;
     }
 }
 
