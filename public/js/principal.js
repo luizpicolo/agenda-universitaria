@@ -78,9 +78,10 @@ var getModalEdit = function(id, date){
         
         // Remove o conteudo dos inputs e afins
         // ISSO SERÁ MUDADO
+        d = new Date(date);
         $("#myModal input#titulo").attr("value", "");
-        $("#myModal input#data_inicio").attr("value", date);   
-        $("#myModal input#data_termino").attr("value", date)
+        $("#myModal input#data_inicio").attr("value", d.toLocaleDateString().replace(/-/gi, '/'));   
+        $("#myModal input#data_termino").attr("value", d.toLocaleDateString().replace(/-/gi, '/'))
         $( "select#categoria option" ).each(function() {
             if ($(this).attr('value') != parseInt(obj.categoria)){
                 $(this).attr("selected", "selected");    
