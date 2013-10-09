@@ -1,7 +1,7 @@
 get '/painel' do
     throw(redirect '/') unless session[:authenticated]
-    @usuario = Usuario.all(:_id => session[:id]).first
-    @tarefas = Tarefa.all(:id_usuario => session[:id].to_s, :order => :prioridade.asc, :order => :data_inicio.asc)
+    @usuario = Usuario.all(:_id => session[:usuario]._id).first
+    @tarefas = Tarefa.all(:id_usuario => session[:usuario]._id.to_s, :order => :prioridade.asc, :order => :data_inicio.asc)
     erb :painel
 end
 

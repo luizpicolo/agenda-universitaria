@@ -504,7 +504,6 @@ $coluna-padding: 10px;
     h1 {
         @include border-radius(50%, 50%, 50%, 50%);
         width: 200px;
-        border: 1px solid #333;
         overflow: hidden;
         position: absolute;
         top: -70px;

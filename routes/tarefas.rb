@@ -7,7 +7,7 @@ end
 post '/tarefas' do
     time = Time.new
     Tarefa.create(
-        :id_usuario => session[:id],
+        :id_usuario => session[:usuario].id,
         :titulo => params[:titulo], 
         :data_inicio => params[:data_inicio], 
         :data_termino => params[:data_termino], 
@@ -43,7 +43,7 @@ end
 
 get '/tarefas/get_array_json' do
     array = []
-    tarefas = Tarefa.all(:id_usuario => session[:id].to_s)
+    tarefas = Tarefa.all(:id_usuario => session[:usuario].id.to_s)
     tarefas.each do |tarefa|
     array << {  
             :_id => tarefa._id, 

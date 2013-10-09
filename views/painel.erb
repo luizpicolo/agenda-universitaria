@@ -13,8 +13,8 @@
                     <div>Amigos</div>
                     <div><%=@usuario.amigos.count%></div>
                 </div>
-                <% if @usuario._id != session[:id]%>
-                <% if session[:usuario].amigos.index(@usuario._id)%>
+                <% if @usuario._id != session[:usuario].id%>
+                <% if session[:usuario].amigos.index(@usuario._id.to_s) != 1%>
                 <div class="botao-seguir">
                     <a href="/amigos/adicionar/<%=@usuario._id%>" class="button">Adicionar aos Amigos</a>
                 </div>
