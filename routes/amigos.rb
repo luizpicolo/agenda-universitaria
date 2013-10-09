@@ -4,24 +4,20 @@ get '/amigos' do
     erb :amigos
 end
 
-get '/amigos/adicionar/:id' do
+get '/amigos/:usuario/:acao/:id' do
     throw(redirect '/') unless session[:authenticated]
     
-    Usuario.push(
-        {:_id => session[:usuario].id}, 
-        :amigos => params[:id] 
-    )
+    if params[:acao] == 'adicionar'
+        Usuario.push(
+            {:_id => session[:usuario].id}, 
+            :amigos => params[:id] 
+        )
+    else if params[:acao] == 'remover'
+        Usuario.pull(
+            {:_id => session[:usuario].id}, 
+            :amigos => params[:id] 
+        )
+    end
     
-    redirect '/painel'
-end
-
-get '/amigos/remover/:id' do
-    throw(redirect '/') unless session[:authenticated]
-    
-    Usuario.pull(
-        {:_id => session[:usuario].id}, 
-        :amigos => params[:id] 
-    )
-    
-    redirect '/painel'
+    redirect '/'+params[:usuario]+'/painel'
 end

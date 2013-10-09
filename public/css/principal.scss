@@ -6,9 +6,9 @@
 @import "//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css";
 @import "http://fonts.googleapis.com/css?family=Open+Sans";
 
-$color-1: #00b5ad;
-$branco: #FEFEFE;
-$laranja: #E48E43;
+$color-1: #219B7C;
+$color-2: #FDFEFE;
+$color-3: #494E52;
 
 *, *::before, *::after{
   box-sizing: border-box; 
@@ -44,7 +44,7 @@ $laranja: #E48E43;
 
 body {
     font-family: "Open Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
-    background: $branco;
+    background: $color-2;
 }
 
 table, tr, td {
@@ -86,7 +86,7 @@ textarea:focus {
     Login
 =========================================*/
 #login {
-    background: $branco;
+    background: $color-2;
     position: fixed;
     top: 50%;
     left: 50%;
@@ -197,7 +197,7 @@ textarea:focus {
     
     h1 {
         text-align: center; 
-        color: $branco;
+        color: $color-2;
         font-size: 1em !important;
         margin-left: -10px;
         
@@ -253,7 +253,7 @@ textarea:focus {
     
     a {
         display: block;
-        color: $branco;
+        color: $color-2;
         text-decoration: none;
         
         padding: 20px 0 20px 27px;
@@ -261,8 +261,8 @@ textarea:focus {
         @include transition(all, 0.1s, linear, 0.1s);
         
         &:hover {
-            color: $branco;
-            background: $laranja;
+            color: $color-2;
+            background: $color-3;
         }
     }
 }
@@ -276,11 +276,11 @@ main {
 }
 
 .top-bar {
-    background: $laranja;
+    background: $color-3;
     height: 68px;
     text-align: right;
     line-height: 3.8;
-    color: $branco;
+    color: $color-2;
     font-size: 1em;    
     font-weight: bold;
     width: 100%;
@@ -296,7 +296,7 @@ main {
     }
     
     img {
-        border: 1px solid $branco;
+        border: 1px solid $color-2;
         @include border-radius(5px, 5px, 5px, 5px);
         margin: -6px -12px 0 10px;
     }
@@ -315,7 +315,7 @@ main {
     }
     
     .button {
-        background: $branco !important;
+        background: $color-2 !important;
         color: #999999;
         border: none;
         font-weight: 700;
@@ -329,13 +329,12 @@ main {
         &:hover {
             background: $color-1 !important;
             border: none;
-            color: $branco;
+            color: $color-2;
         }
     }
 }
 
 #main {
-    
     padding: 69px 10px 0;
     
     a {
@@ -396,7 +395,7 @@ input.button {
 
 .alert {
     background: #b94a48 !important;
-    color: $branco !important;
+    color: $color-2 !important;
 } 
 
 /*
@@ -508,14 +507,14 @@ $coluna-padding: 10px;
         position: absolute;
         top: -70px;
         left: -20px;
-        
+                
         img {
             width: 200px;
         }
     }
     
     h2 {
-        color: $branco;
+        color: $color-2;
         padding-left: 200px;
         padding-top: 10px;
         font-size: 2em;
@@ -538,48 +537,82 @@ $coluna-padding: 10px;
         font-size: .8em;
         
         .button {
-            background: $laranja;
+            background: $color-3;
             @include border-radius(5px, 5px, 5px, 5px);
         }
     }
 }
 
 .perfil-tarefas {
-        
-    border: 1px solid #ccc;
-    float: left;
-    padding: 6px;
-    width: 228px;
-    margin: 0 0 10px 10px;
-    @include border-radius(5px, 5px, 5px, 5px);
-    background: $laranja;
+    
+    color: $color-3;
         
     h1 {
-        font-size: .8em;
         padding: 0;
-        margin: 0 0 5px;
-        color: $branco;
-        line-height: 1.4; 
+        margin: 0;
+        font-size: 1.3em;
+    }
+    
+    p {
+        padding: 0;
+       margin: 0;  
     }
     
     p:first-child {
-        font-size: .7em;
-        padding: 0;
-        margin: 0;
-        text-align: right;
-        color: $branco;
-        font-weight: bold;
-        color: #252627;
+        
+        span:last-child {
+            display: inline-block;
+            float: right;
+            
+            i {
+                margin-left: 10px;
+            }
+        }
     }
     
     p:last-child {
-        font-size: .8em;
-        height: 57px;
-        overflow: hidden;
-        color: #252627;
+        font-size: .8em; 
+        padding-bottom: 5px;
+        margin-bottom: 5px;
+        border-bottom: 1px dotted #ccc;
     }
 }
 
+/*
+    Amigos
+=========================================*/
+.amigos {
+    
+    background: #64A08D;
+    float: left;
+    height: 120px;
+    width: 230px;
+    padding: 6px;
+    margin: 5px;
+    position: relative;
+    @include border-radius(5px, 5px, 5px, 5px);
+    
+    h2 {
+        font-size: 1em;
+        position: absolute;
+        top: 15px;
+        left: 100px;
+        color: #190F0D;
+        font-weight: 100;
+    }
+    
+    h1 {
+        @include border-radius(50%, 50%, 50%, 50%);
+        width: 80px;
+        overflow: hidden;
+        position: absolute;
+        top: -14px;
+        
+        img {
+            width: 80px;
+        }
+    }
+}
 
 
 
