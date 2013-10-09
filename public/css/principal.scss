@@ -583,47 +583,50 @@ $coluna-padding: 10px;
 =========================================*/
 .amigos {
     
-    background: #64A08D;
-    float: left;
-    height: 120px;
-    width: 230px;
-    padding: 6px;
-    margin: 5px;
+    color: $color-3;
     position: relative;
-    @include border-radius(5px, 5px, 5px, 5px);
-    
-    h2 {
-        font-size: 1em;
-        position: absolute;
-        top: 15px;
-        left: 100px;
-        color: #190F0D;
-        font-weight: 100;
-    }
+    margin-top: 40px;
+    width: 400px;
     
     h1 {
         @include border-radius(50%, 50%, 50%, 50%);
-        width: 80px;
+        width: 70px;
         overflow: hidden;
         position: absolute;
-        top: -14px;
-        
+        top: -30px;
+                
         img {
-            width: 80px;
+            width: 70px;
         }
     }
+        
+    h2 {
+        padding: 0 0 0 80px;;
+        margin: 0;
+        font-size: 1.3em;
+    }
+    
+    p {
+        padding: 0 0 0 80px;;
+        margin: 0;  
+    }
+    
+    p:first-child {
+        
+        span:last-child {
+            display: inline-block;
+            float: right;
+            
+            i {
+                margin-left: 10px;
+            }
+        }
+    }
+    
+    p:last-child {
+        font-size: .8em; 
+        padding-bottom: 5px;
+        margin-bottom: 5px;
+        border-bottom: 1px dotted #ccc;
+    }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-

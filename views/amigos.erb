@@ -2,13 +2,25 @@
     <h1>Amigos</h1>
 </div>
 <div id="main">
-    <% for i in 1..30%>
-    <section class="amigos">
-        <hgroup>
-            <h1><img src="https://graph.facebook.com/luizpicolo/picture?width=200&amp;height=200" title="Gabriel Medina"></h1>
-            <h2>Nome da pessoa</h2>
-        </hgroup>
-    </section>
+    <div class="row">
+    <%@amigos.each do |t|%>
+        <div class="large-4 columns">
+            <section class="amigos">
+                <h1>
+                    <a href="<%=t.usuario%>/painel">
+                        <img src="https://graph.facebook.com/<%=t.usuario%>/picture?width=200&height=200" title="<%=t.nome%>">
+                    </a>
+                </h1>
+                <p>
+                    <span>
+                        <i class="icon-location-arrow"></i> 
+                        <%=t.localizada%>
+                    </span>
+                </p>
+                <h2><%=t.nome%></h2>
+            </section>
+        </div>
     <%end%>
+    </div>
 </div>
 

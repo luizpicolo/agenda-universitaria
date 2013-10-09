@@ -1,6 +1,11 @@
 get '/amigos' do
     throw(redirect '/') unless session[:authenticated]
-    @usuarios = Usuario.all()
+    vinculo = []
+    usuario = Usuario.all(:_id => session[:usuario]._id).first
+    usuario.amigos.each {|usr| 
+        vinculo << Usuario.where(:_id => usr).first  
+    }
+    @amigos = vinculo;
     erb :amigos
 end
 
@@ -12,7 +17,7 @@ get '/amigos/:usuario/:acao/:id' do
             {:_id => session[:usuario].id}, 
             :amigos => params[:id] 
         )
-    else if params[:acao] == 'remover'
+    elsif params[:acao] == 'remover'
         Usuario.pull(
             {:_id => session[:usuario].id}, 
             :amigos => params[:id] 
