@@ -12,4 +12,6 @@ class Tarefa
     key :descricao, String
     key :prioridade, Integer, :required => true
     key :visibilidade, Integer, :required => true
+    
+    belongs_to :usuario
 end

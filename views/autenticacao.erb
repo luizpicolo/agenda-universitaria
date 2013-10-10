@@ -21,6 +21,7 @@
                 <h2>Sua agenda OnLine</h2>
             </hgroup>
         </header>
+        <%=session[:msg_erro]%>
         <div id="border-login">
             <form method="post" action="/auth/developer/callback">
                 <div class="row">
@@ -54,7 +55,6 @@
             </div>
         </div>
     </section>
-    
     
 	<script>$(document).foundation();</script>
 </body>

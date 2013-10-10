@@ -13,5 +13,7 @@ class Usuario
     key :facebook, String
     key :twitter, String
     key :localizada, String
-    key :amigos, Array
+    
+    many :amigos
+    many :tarefas
 end
