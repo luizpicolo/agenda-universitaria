@@ -1,7 +1,6 @@
 get '/painel' do
     throw(redirect '/') unless session[:authenticated]
-    @usuario = Usuario.all(:_id => session[:usuario]._id).first
-    @tarefas = Tarefa.all(:id_usuario => session[:usuario]._id.to_s, :order => :prioridade.asc, :order => :data_inicio.asc)
+    @usuario = Usuario.first(:_id => session[:usuario]._id)
     erb :painel
 end
 
@@ -9,6 +8,5 @@ get '/:usuario/painel' do
     throw(redirect '/') unless session[:authenticated]
     @usuario = Usuario.all(:usuario => params[:usuario]).first
     @tarefas = Tarefa.all(:id_usuario => @usuario._id.to_s, :visibilidade => 1, :order => :prioridade.asc, :order => :data_inicio.asc)
-    @vinculo = Usuario.all(:_id => session[:usuario]._id, :amigos => [@usuario._id.to_s]).first
     erb :painel
 end

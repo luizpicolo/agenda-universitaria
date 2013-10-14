@@ -48,7 +48,7 @@ get '/auth/:provider/callback' do
             :usuario => obj['info']['nickname'],
             :senha => SecureRandom.hex,
             :facebook => obj['info']['urls']['facebook'],
-            :localidade => obj['info']['location'] 
+            :localidade => obj['info']['location'],
         ).save()
 #    elsif params[:provider] == 'twitter'        
 #        Usuario.create(

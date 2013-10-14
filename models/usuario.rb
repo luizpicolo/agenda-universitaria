@@ -12,8 +12,23 @@ class Usuario
     key :senha, String, :required => true
     key :facebook, String
     key :twitter, String
-    key :localizada, String
+    key :localidade, String
+    key :amigos_ids, Array, :typecast => 'ObjectId'
     
-    many :amigos
+    many :usuarios, :class_name => 'Usuario', :in => :amigos_ids
     many :tarefas
+    
+    def add_amigo(*amigos)
+		amigos.each do |amigo|
+			self.usuarios << amigo
+		end
+		save		
+	end
+    
+    def rmv_amigo(*amigos)
+		amigos.each do |amigo|
+			self.usuarios.delete(amigo)
+		end
+		save		
+	end
 end

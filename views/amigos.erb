@@ -3,7 +3,7 @@
 </div>
 <div id="main">
     <div class="row">
-    <%@amigos.each do |t|%>
+    <%@usuario.usuarios.each do |t|%>
         <div class="large-4 columns">
             <section class="amigos">
                 <h1>
@@ -14,7 +14,7 @@
                 <p>
                     <span>
                         <i class="icon-location-arrow"></i> 
-                        <%=t.localizada%>
+                        <%=t.localidade%>
                     </span>
                 </p>
                 <h2><%=t.nome%></h2>

@@ -7,12 +7,12 @@ end
 post '/tarefas' do
     time = Time.new
     Tarefa.create(
-        :id_usuario => session[:usuario].id,
+        :usuario_id => session[:usuario]._id,
         :titulo => params[:titulo], 
         :data_inicio => params[:data_inicio], 
         :data_termino => params[:data_termino], 
         :data_cadastro => time.getlocal,
-        :categoria => params[:catTegoria],
+        :categoria => params[:categoria],
         :descricao => params[:descricao], 
         :prioridade => params[:prioridade],
         :visibilidade => params[:visibilidade]
@@ -43,7 +43,7 @@ end
 
 get '/tarefas/get_array_json' do
     array = []
-    tarefas = Tarefa.all(:id_usuario => session[:usuario].id.to_s)
+    tarefas = Tarefa.all(:usuario_id => session[:usuario].id)
     tarefas.each do |tarefa|
     array << {  
             :_id => tarefa._id, 
@@ -68,4 +68,8 @@ get '/tarefas/get_tarefa/:id' do
         :visibilidade => tarefa.visibilidade,
         :descricao => tarefa.descricao
     })
+end
+
+error do
+  'Desculpe, houve um erro desagradável - ' + env['sinatra.error'].name
 end

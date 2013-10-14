@@ -11,10 +11,10 @@
                 </hgroup>
                 <div class="perfil-statistica">
                     <div>Amigos</div>
-                    <div><%=@usuario.amigos.count%></div>
+                    <div><%=@usuario.usuarios.count%></div>
                 </div>
                 <% if @usuario._id != session[:usuario].id%>
-                <% if !@vinculo %>
+                <% if @vinculo %>
                 <div class="botao-seguir">
                     <a href="/amigos/<%=@usuario.usuario%>/adicionar/<%=@usuario._id%>" class="button">Adicionar aos Amigos</a>
                 </div>
@@ -25,7 +25,7 @@
                 <% end %>
                 <% end %>
             </header>
-            <%@tarefas.each do |t|%>
+            <%@usuario.tarefas.each do |t|%>
             <section class="perfil-tarefas">
                 <p>
                     <span>

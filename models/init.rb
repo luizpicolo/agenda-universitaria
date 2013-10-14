@@ -8,4 +8,3 @@ end
 
 require_relative 'tarefa.rb'
 require_relative 'usuario.rb'
-require_relative 'amigo.rb'
