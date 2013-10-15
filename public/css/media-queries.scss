@@ -1,0 +1,65 @@
+/*
+    Media Queries
+    see: http://css-tricks.com/snippets/css/media-queries-for-standard-devices/
+=========================================*/
+/* Smartphones (portrait) ----------- */
+@media only screen 
+and (max-width : 320px) {
+    #login {
+        
+        h1 {
+            
+            i {
+                font-size: .5em;
+            }
+        }
+        
+    }
+}
+
+/* iPads (portrait and landscape) ----------- */
+@media only screen 
+and (min-device-width : 768px) 
+and (max-device-width : 1024px) {
+
+    
+}
+
+/* iPads (landscape) ----------- */
+@media only screen 
+and (min-device-width : 768px) 
+and (max-device-width : 1024px) 
+and (orientation : landscape) {
+
+    
+}
+
+/* iPads (portrait) ----------- */
+@media only screen 
+and (min-device-width : 768px) 
+and (max-device-width : 1024px) 
+and (orientation : portrait) {
+/* Styles */
+}
+
+/* Desktops and laptops ----------- */
+@media only screen 
+and (min-width : 1224px) {
+
+    
+}
+
+/* Large screens ----------- */
+@media only screen 
+and (min-width : 1824px) {
+
+    
+}
+
+/* iPhone 4 ----------- */
+@media
+only screen and (-webkit-min-device-pixel-ratio : 1.5),
+only screen and (min-device-pixel-ratio : 1.5) {
+
+    
+}

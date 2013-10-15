@@ -95,7 +95,8 @@ post '/auth/:provider/callback' do
         
         redirect "/painel"
     else
-        session[:msg_erro] = '<div data-alert class="alert-box alert" id="msg-01">Usuário não cadastrado</div>'
+        flash_messenger('Usuário não Cadastrado', 'error')
+        #session[:msg_erro] = alert_error('Usuário não cadastrado')
         redirect "/"
     end     
 end
@@ -119,6 +120,7 @@ end
 # Methodo para deslogar o usuário
 ####
 get '/logout' do
+    flash_messenger('Deslogado com Sucesso', 'success')
     session[:authenticated] = false
     redirect '/'
 end

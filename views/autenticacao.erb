@@ -5,7 +5,7 @@
 <head>
 	<meta charset="utf-8">
   	<meta name="viewport" content="width=device-width">
-  	<title>O titulo vai Aqui</title>
+  	<title>CLOUD University</title>
 	<link type="text/css" rel="stylesheet" href="/css/principal.css">
 	
 	<script type="text/javascript" src="/js/vendor/custom.modernizr.js"></script>
@@ -21,8 +21,7 @@
                 <h2>Sua agenda OnLine</h2>
             </hgroup>
         </header>
-        <%=session[:msg_erro]%>
-        <%session[:msg_erro] = ''%>
+        <%=flash_messenger_return()%>
         <div id="border-login">
             <form method="post" action="/auth/developer/callback">
                 <div class="row">

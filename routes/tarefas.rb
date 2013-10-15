@@ -17,7 +17,7 @@ post '/tarefas' do
         :prioridade => params[:prioridade],
         :visibilidade => params[:visibilidade]
     ).save()
-    "Sucesso"
+    alert_success('Tarefa criada com sucesso')
 end
 
 # Método para atualizar as tarefas
@@ -32,13 +32,13 @@ put '/tarefas' do
         :prioridade => params[:prioridade],
         :visibilidade => params[:visibilidade]
     )
-    "Sucesso"
+    alert_success('Tarefa atualizada com sucesso')
 end
 
 # Método para deletar as tarefas
 get '/tarefas/delete/:id' do
     Tarefa.destroy(params[:id])
-    "Sucesso"
+    alert_success('Tarefa removida com sucesso')
 end
 
 get '/tarefas/get_array_json' do
@@ -71,5 +71,5 @@ get '/tarefas/get_tarefa/:id' do
 end
 
 error do
-  'Desculpe, houve um erro desagradável - ' + env['sinatra.error'].name
+    alert_error('Desculpe, houve um erro desagradável - ' + env['sinatra.error'].name)
 end

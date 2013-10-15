@@ -142,31 +142,26 @@ $("form").submit(function(e){
     
     if (!$("#method").attr("value")) { 
         request.done(function(msg) {
-            $(focusResponse).html('<div data-alert class="alert-box success" id="msg-01">Sucesso</div>');
+            $(focusResponse).html(msg);
             // Limpa o formulário
-            //$(':input').not(':button, :submit, :reset, :hidden').val('').removeAttr('checked').removeAttr('selected');
             setTimeout(function(){
                 location.href = action;
             }, 2000);
         });
     } else {
         request.done(function(msg) {
-            $(focusResponse).html('<div data-alert class="alert-box success" id="msg-01">Sucesso</div>');
+            $(focusResponse).html(msg);
             // Limpa o formulário 
             setTimeout(function(){
                 location.href = action;
             }, 2000);
         })    
     }
-    request.fail(function(jqXHR, textStatus) {
-        $(focusResponse).html('<div data-alert class="alert-box alert" id="msg-01">Erro</div>');
-        setTimeout("removeTagPorID('msg-01')", 2000);
+    
+    request.fail(function(msg) {
+        $(focusResponse).html(msg);
     });
 });
-
-var removeTagPorID = function(id) {
-	$("#"+id).fadeOut('slow');
-}
 
 /*
     Calendar
