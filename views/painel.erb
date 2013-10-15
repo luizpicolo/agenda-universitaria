@@ -13,8 +13,8 @@
                     <div>Amigos</div>
                     <div><%=@usuario.usuarios.count%></div>
                 </div>
-                <% if @usuario._id != session[:usuario].id%>
-                <% if @vinculo %>
+                <% if @usuario._id != session[:usuario]._id%>
+                <% if !@vinculo %>
                 <div class="botao-seguir">
                     <a href="/amigos/<%=@usuario.usuario%>/adicionar/<%=@usuario._id%>" class="button">Adicionar aos Amigos</a>
                 </div>

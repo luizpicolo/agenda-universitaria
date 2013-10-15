@@ -22,6 +22,7 @@
             </hgroup>
         </header>
         <%=session[:msg_erro]%>
+        <%session[:msg_erro] = ''%>
         <div id="border-login">
             <form method="post" action="/auth/developer/callback">
                 <div class="row">

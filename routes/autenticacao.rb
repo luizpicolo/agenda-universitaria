@@ -88,14 +88,14 @@ post '/auth/:provider/callback' do
     ############# UTILIZAR GRIPTOGRAFIA
     usuario = Usuario.first(:usuario => params[:usuario], :senha => params[:senha]) || false
     
-    if usuario == false
+    if usuario != false
         # cria a sessão para o usuário logado
         session[:authenticated] = true
         session[:usuario] = usuario
         
         redirect "/painel"
     else
-        session[:msg_erro] = "Usuário não encontrado"
+        session[:msg_erro] = '<div data-alert class="alert-box alert" id="msg-01">Usuário não cadastrado</div>'
         redirect "/"
     end     
 end

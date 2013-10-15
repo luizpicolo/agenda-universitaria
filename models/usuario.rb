@@ -18,17 +18,13 @@ class Usuario
     many :usuarios, :class_name => 'Usuario', :in => :amigos_ids
     many :tarefas
     
-    def add_amigo(*amigos)
-		amigos.each do |amigo|
-			self.usuarios << amigo
-		end
+    def add_amigo(*amigo)
+		self.usuarios << amigo
 		save		
 	end
     
-    def rmv_amigo(*amigos)
-		amigos.each do |amigo|
-			self.usuarios.delete(amigo)
-		end
+    def rmv_amigo(*amigo)
+		self.amigos_ids.delete(amigo)
 		save		
 	end
 end
