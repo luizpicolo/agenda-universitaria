@@ -4,7 +4,7 @@
 <div id="main">
     <div class="row">
         <div class="large-12 columns">
-            <header class="perfil-usuario">
+            <header class="perfil-amigos">
                 <hgroup>
                     <h1><img src="https://graph.facebook.com/<%=@usuario.usuario%>/picture?width=200&height=200" title="Gabriel Medina"></h1>
                     <h2><%=@usuario.nome%></h2>
@@ -13,6 +13,17 @@
                     <div>Amigos</div>
                     <div><%=@usuario.usuarios.count%></div>
                 </div>
+                <% if @usuario._id != session[:usuario]._id%>
+                <% if !@vinculo %>
+                <div class="botao-seguir">
+                    <a href="/amigos/<%=@usuario.usuario%>/adicionar/<%=@usuario._id%>" class="button">Adicionar aos Amigos</a>
+                </div>
+                <% else %>
+                <div class="botao-seguir">
+                    <a href="/amigos/<%=@usuario.usuario%>/remover/<%=@usuario._id%>" class="button">Remover Amigo</a>
+                </div>
+                <% end %>
+                <% end %>
             </header>
             <%@usuario.tarefas.each do |t|%>
                 <% if t.visibilidade < 3 %>

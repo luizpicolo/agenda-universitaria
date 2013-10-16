@@ -178,7 +178,7 @@ textarea:focus {
     
     @media screen 
     and (max-width : 568px) {
-        width: 70px;        
+        width: 70px;       
     }
     
     h1 {
@@ -285,6 +285,22 @@ textarea:focus {
 
 main {
     margin-left: 100px;
+    
+    @media screen 
+    and (max-width : 568px) {
+        margin-left: 70px;
+    }
+    
+    h1.titulo {
+        @media screen 
+        and (max-width : 568px) {
+            font-size: 1.5em;
+            margin: 0;
+            paddgin: 0;
+        }
+        
+       
+    }
 }
 
 .top-bar {
@@ -354,6 +370,20 @@ main {
     padding-top: 80px;
     margin: 0 auto 10px;
     width: 98%;
+    
+    @media screen 
+    and (max-width : 568px) {
+        padding: 60px 0 0 0;
+        margin-left: -20px;
+        width: 110%;
+        
+        .fc-button-today, 
+        .fc-button-month, 
+        .fc-button-agendaWeek,
+        .fc-button-agendaDay {
+            display: none;
+        }
+    }
 }
 
 .fc-border-separate td {
@@ -383,6 +413,11 @@ input.button {
     @include border-radius(5px, 5px, 5px, 5px);
     width: 150px !important;
     margin-bottom: 0;
+    
+    @media screen 
+    and (max-width : 568px) {
+        width: 100% !important;
+    }
 }
 
 input.normal {
@@ -435,7 +470,7 @@ input.alert {
 =========================================*/
 
 .alert-box {
-    margin: 0 15px 20px !important;
+    margin: 0 0 20px !important;
 }
 
 .alert {
@@ -455,7 +490,7 @@ input.alert {
 /*
     Perfil do Usuário 
 =========================================*/
-#perfil-usuario {
+.perfil-usuario {
     background: $color-1;
     margin: 70px 0 0;
     width: 100%;
@@ -464,12 +499,20 @@ input.alert {
     position: relative;
     margin-bottom: 70px;
     
-    @media screen 
-        and (max-width : 568px) {
-            width: 105%;
-            margin: 30px 0 40px -30px;
-            height: 50px;
-        }
+    @media screen
+    and (max-width : 320px) {
+        width: 112%;
+        margin: 10px 0 30px -10px;
+        height: 50px;
+    }
+    
+    @media screen
+    and (min-width : 321px)
+    and (max-width : 568px) {
+        width: 105%;
+        margin: 30px 0 40px -30px;
+        height: 50px;
+    }
     
     h1 {
         @include border-radius(50%, 50%, 50%, 50%);
@@ -480,6 +523,14 @@ input.alert {
         left: -20px;
         
         @media screen 
+        and (max-width : 320px) {
+            width: 70px;
+            top: -33px;
+            left: -5px;
+        }
+        
+        @media screen 
+        and (min-width : 321px)
         and (max-width : 568px) {
             width: 100px;
             top: -50px;
@@ -490,9 +541,17 @@ input.alert {
             width: 200px;
             
             @media screen 
+            and (max-width : 320px) {
+                width: 70px;
+            }
+            
+            @media screen 
+            and (min-width : 321px)
             and (max-width : 568px) {
                 width: 100px;
             }
+            
+            
         }
     }
     
@@ -503,6 +562,14 @@ input.alert {
         font-size: 2em;
         
         @media screen 
+        and (max-width : 320px) {
+            font-size: 1em;
+            padding-left: 75px;
+            padding-top: 7px;
+        }
+        
+        @media screen 
+        and (min-width : 321px)
         and (max-width : 568px) {
             font-size: 1em;
             padding-left: 110px;
@@ -520,6 +587,18 @@ input.alert {
         top: 60px;
         
         @media screen 
+        and (max-width : 320px) {
+            top: 25px;
+            left: -48px;
+            width: 300px;
+            
+            div {
+                display: inline-block;
+            }
+        }
+        
+        @media screen 
+        and (min-width : 321px)
         and (max-width : 568px) {
             top: 25px;
             left: -13px;
@@ -537,6 +616,12 @@ input.alert {
         bottom: -5px; 
         font-size: .8em;
         
+        @media screen 
+        and (max-width : 320px) {
+            top: 70px;
+            right: 0;
+        }
+        
         .button {
             background: $color-3;
             @include border-radius(5px, 5px, 5px, 5px);
@@ -544,31 +629,58 @@ input.alert {
             &:hover {
                 
             }
+            
+            @media screen 
+            and (max-width : 320px) {
+                width: 227px;
+            }
         }
     }
 }
 
+.perfil-amigos {
+    @extend .perfil-usuario;
+    
+    @media screen
+    and (max-width : 320px) {
+        margin: 10px 0 70px -10px;
+    }
+}
+
+
 .perfil-tarefas {
     
     color: $color-3;
-    
-    @media screen 
-    and (max-width : 568px) {
-         margin: 0 20px 0 -20px;   
+   @media screen
+    and (max-width : 320px) {
+        width: 220px;
+        margin-left: -10px;
     }
-        
+            
     h1 {
         padding: 0;
         margin: 0;
         font-size: 1.3em;
+        
+        @media screen 
+        and (max-width : 320px) {
+             font-size: .8em;
+        }
     }
     
     p {
-        padding: 0;
+       padding: 0;
        margin: 0;  
     }
     
     p:first-child {
+        
+        span:first-child {
+            @media screen 
+            and (max-width : 320px) {
+                 font-size: .8em;
+            }
+        }
         
         span:last-child {
             display: inline-block;
@@ -598,6 +710,11 @@ input.alert {
     margin-top: 40px;
     width: 400px;
     
+    @media screen 
+    and (max-width : 320px) {
+        margin: 0 0 50px -10px;  
+    }    
+    
     h1 {
         @include border-radius(50%, 50%, 50%, 50%);
         width: 70px;
@@ -614,24 +731,33 @@ input.alert {
         padding: 0 0 0 80px;;
         margin: 0;
         font-size: 1.3em;
+        
+        @media screen 
+        and (max-width : 320px) {
+            font-size: .8em !important;
+        } 
     }
     
     p {
         padding: 0 0 0 80px;;
-        margin: 0;  
+        margin: 0;
+        
+        @media screen 
+        and (max-width : 320px) {
+            font-size: .7em !important;
+        } 
     }
     
-    p:first-child {
-        
-        span:last-child {
-            display: inline-block;
-            float: right;
-            
-            i {
-                margin-left: 10px;
-            }
-        }
-    }
+//    p:first-child {
+//        span:last-child {
+//            display: inline-block;
+//            float: right;
+//            
+//            i {
+//                margin-left: 10px;
+//            }
+//        }
+//    }
     
     p:last-child {
         font-size: .8em; 

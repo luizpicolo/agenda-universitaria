@@ -25,7 +25,6 @@ put '/configuracoes' do
         Usuario.set(
             {:_id => session[:usuario]._id},
             :nome => params[:nome], 
-            #:senha => params[:digite_novamente], 
             :email => params[:email], 
             :descricao => params[:descricao] 
         )
