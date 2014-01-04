@@ -3,7 +3,15 @@ require 'mongo_mapper'
 
 #configuração do MongoDB
 configure do
-	MongoMapper.database = 'agenda'
+	#MongoMapper.database = 'agenda'
+
+	# Conexão com Heroku
+	if ENV['MONGOHQ_URL']
+    	uri = URI.parse(ENV['MONGOHQ_URL'])
+    	MongoMapper.connection = Mongo::Connection.from_uri(ENV['MONGOHQ_URL'])
+    	MongoMapper.database = uri.path.gsub(/^\//, '')
+    	puts ">> db is #{uri.path.gsub(/^\//, '')}"
+  	end
 end
 
 require_relative 'tarefa.rb'
