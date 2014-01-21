@@ -34,7 +34,7 @@
 - ^rebar$
 
 # Bootstrap minified css and js
-- (^|/)bootstrap([^.]*)(\.min)?\.(js|css)$
+- (^|/)public([^.]*)(\.min)?\.(js|css)$
 
 # Foundation css
 - foundation.min.css
