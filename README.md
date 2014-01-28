@@ -1,7 +1,7 @@
 Cloud University
 ====================
-
-O Cloud University é um sistema idealizado para o agendamento de compromissos universitários. Tem como objetivo o compartilhamento de tarefas, no qual, os usuários que fazem parte da rede de outros usuários, podem, além de visualizar suas tarefas privadas e públicas, copiar as mesmas, similar ao -Fork- do GitHub.
+<a href="https://codeclimate.com/github/luizpicolo/agenda-universitaria-ruby-sinatra"><img src="https://codeclimate.com/github/luizpicolo/agenda-universitaria-ruby-sinatra.png" /></a>
+<p>O Cloud University é um sistema idealizado para o agendamento de compromissos universitários. Tem como objetivo o compartilhamento de tarefas, no qual, os usuários que fazem parte da rede de outros usuários, podem, além de visualizar suas tarefas privadas e públicas, copiar as mesmas, similar ao -Fork- do GitHub.</p>
 
 Este sistema não está completo.
 
