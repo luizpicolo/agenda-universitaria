@@ -10,8 +10,8 @@ end
 # Provedores de acesso para autenticação
 ####
 use OmniAuth::Builder do
-    provider :facebook, '487073518057149','150eece42a816d0a88be3043cbb619d1'
-    #provider :twitter, 'N9kDuhTXbWjC0wX6kmU0w', 's1d9mGBlBW8JQOYVI6NBNSjv8C7GSudRvBfvVrPWuA'
+    provider :facebook, '',''
+    #provider :twitter, '', ''
 end
 
 ####
