@@ -18,3 +18,5 @@ Demo
 =========
 
 http://cloud-university.herokuapp.com/
+
+Meu perfil: http://cloud-university.herokuapp.com/luizpicolo/painel
