@@ -18,3 +18,7 @@ Para sua criação foram utilizados:
 [http://cloud-university.herokuapp.com/](http://cloud-university.herokuapp.com/)
 
 Meu perfil: [http://cloud-university.herokuapp.com/luizpicolo/painel](http://cloud-university.herokuapp.com/luizpicolo/painel)
+
+# Licensa
+
+Sob a [Mit - License](http://luizpicolo.mit-license.org/)
